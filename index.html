@@ -10,7 +10,7 @@
   <main class="container">
     <h1 class="title">Guruh a'zolari ro'yxati</h1>
     <form action="#" method="POST" class="user-add-form" id="userForm">
-      <input type="text" name="full_name" placeholder="Ism Sharf kiriting" spellcheck="false" class="user-add-input" id="username" title="ma'lumot qo'shish uchun Enter tugmasini bosing" autofocus>
+      <input type="text" name="full_name" placeholder="Ism Sharif kiriting" spellcheck="false" class="user-add-input" id="username" title="ma'lumot qo'shish uchun Enter tugmasini bosing" autofocus>
       <button type="button" id="userAddSpeech" class="speech-button"><span class="visually-hidden">ovozli qo'shish</span></button>
     </form>
     <div class="users-list-container">
@@ -27,7 +27,7 @@
     
     username.onkeyup = function (event) {
       
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13 && !username.value == "") {
        
         const newLi = document.createElement('LI')
 
