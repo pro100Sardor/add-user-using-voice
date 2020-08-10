@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 LESSON HOME TASK</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">Guruh a'zolari ro'yxati</h1>
+    <form action="#" method="POST" class="user-add-form" id="userForm">
+      <input type="text" name="full_name" placeholder="Ism Sharf kiriting" spellcheck="false" class="user-add-input" id="username" title="ma'lumot qo'shish uchun Enter tugmasini bosing" autofocus>
+      <button type="button" id="userAddSpeech" class="speech-button"><span class="visually-hidden">ovozli qo'shish</span></button>
+    </form>
+    <div class="users-list-container">
+      <ol id="users" class="users-list"></ol>
+    </div>
+  </main>
+
+  <!-- <script src="./js/main.js"></script> -->
+  <script>
+    const rec = new webkitSpeechRecognition()
+
+    rec.lang = 'uz-UZ'
+
+    rec.onend = function () {
+  
+      console.log('Aloqa tugadi.')
+    }
+
+    rec.onresult = function (event) {
+
+      const buyruq = event.results[0][0].transcript.toUpperCase()
+      // console.log(event.results[0][0].transcript)
+
+      // if (buyruq === 'qizil') {
+      //   document.body.style.backgroundColor = 'red'
+      // }
+      // else if (buyruq === 'yashil') {
+      //   document.body.style.backgroundColor = 'green'
+      // }
+      // else {
+      //   document.write('Tushunmadim')
+      // }
+
+       const newLi = document.createElement('LI')
+
+        const newImg = document.createElement('IMG')
+      
+        newLi.textContent = buyruq
+
+        newImg.src = './img/remove.svg' 
+
+        users.appendChild(newLi).appendChild(newImg)
+        newImg.onclick = function () {
+
+newLi.remove()
+}
+    }
+
+    rec.onerror = function () {
+
+    console.log('Xatolik yuz berdi.')
+  }
+
+  const newSpeech = document.getElementById('userAddSpeech')
+
+  newSpeech.onclick = function () {
+    rec.start()
+  }
+
+// window.onkeyup = function (event) {
+
+//   if(newSpeech == onclick) {
+//     rec.start()
+//   }
+// }
+
+// window.onkeyup = function (event) {
+
+//   if(event.keyCode === 32) {
+//     rec.start()
+//   }
+// }
+
+    userForm.onsubmit = function (event) { 
+      
+      event.preventDefault() 
+    }
+    
+    username.onkeyup = function (event) {
+      
+      if (event.keyCode === 13) {
+       
+        const newLi = document.createElement('LI')
+
+        const newImg = document.createElement('IMG')
+      
+        newLi.textContent = username.value
+
+        newImg.src = './img/remove.svg' 
+
+        users.appendChild(newLi).appendChild(newImg)
+
+        username.value = ''
+
+        newImg.onclick = function () {
+
+          newLi.remove()
+        }
+      }
+    }
+  </script>
+</body>
+</html>
