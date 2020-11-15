@@ -9,21 +9,21 @@ rec.onend = function () {
 
 rec.onresult = function (event) {
 
-  const buyruq = event.results[0][0].transcript.toUpperCase()
+  const buyruq = event.results[0][0].transcript.toUpperCase();
 
-  const newLi = document.createElement('LI')
+  const newLi = document.createElement('LI');
 
-  const newImg = document.createElement('IMG')
-  
-  newLi.textContent = buyruq
+  const newImg = document.createElement('IMG');
 
-  newImg.src = './img/remove.svg' 
+  newLi.textContent = buyruq;
 
-  users.appendChild(newLi).appendChild(newImg)
+  newImg.src = './img/remove.svg';
+
+  users.appendChild(newLi).appendChild(newImg);
 
   newImg.onclick = function () {
 
-    newLi.remove()
+    newLi.remove();
   }
 }
 
@@ -35,6 +35,6 @@ rec.onerror = function () {
 const newSpeech = document.getElementById('userAddSpeech')
 
 newSpeech.onclick = function () {
-  
+
   rec.start()
 }
