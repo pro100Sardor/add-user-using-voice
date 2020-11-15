@@ -20,22 +20,22 @@
 
   <script src="./js/main.js"></script>
   <script>
-    userForm.onsubmit = function (event) { 
-      
-      event.preventDefault() 
+    userForm.onsubmit = function (event) {
+
+      event.preventDefault()
     }
-    
+
     username.onkeyup = function (event) {
-      
+
       if (event.keyCode === 13 && !username.value == "") {
-       
+
         const newLi = document.createElement('LI')
 
         const newImg = document.createElement('IMG')
-      
+
         newLi.textContent = username.value
 
-        newImg.src = './img/remove.svg' 
+        newImg.src = './img/remove.svg'
 
         users.appendChild(newLi).appendChild(newImg)
 
